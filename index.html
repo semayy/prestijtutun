@@ -1,343 +1,83 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vena Coffee Co. - Dijital Strateji Raporu</title>
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        body {
-            font-family: 'Open Sans', sans-serif;
-        }
-        h1, h2, h3, h4 {
-            font-family: 'Montserrat', sans-serif;
-        }
-        .logo-font {
-            font-family: 'Bebas Neue', sans-serif;
-        }
-        .tab-content {
-            display: none;
-        }
-        .tab-content.active {
-            display: block;
-            animation: fadeIn 0.4s ease-out forwards;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .sidebar-item.active {
-            background-color: #3D2B1F; /* Coffee Dark Brown */
-            color: white;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-        }
-    </style>
-</head>
-<body class="bg-stone-50">
+Aşağıdaki yapı, Gemini’ye “yatay videodan dikey Reels üret” işini **kurumsal logo/görselleri birebir** koruyacak şekilde net tarif eder. En iyi sonuç için prompt’u tek parça uzun yaz ve dosya adlarını (yüklediğin asset’lerle birebir aynı) kullan.
 
-<div class="min-h-screen flex flex-col md:flex-row">
-    <!-- Sidebar -->
-    <aside class="w-full md:w-64 bg-[#1A120B] text-white flex flex-col shadow-xl z-10 sticky top-0 md:h-screen">
-        <div class="p-6 border-b border-stone-800">
-            <h1 class="text-5xl tracking-wide logo-font">
-                VENA<span class="text-stone-400">.</span>
-            </h1>
-            <p class="text-[11px] text-stone-400 mt-1 uppercase tracking-widest font-semibold">Dijital Strateji Raporu</p>
-        </div>
-        
-        <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
-            <button onclick="showTab('ozet', this)" class="sidebar-item active w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-all text-stone-300 hover:bg-stone-800 hover:text-white">
-                <i data-lucide="target" class="w-5 h-5"></i>
-                <span class="font-medium">Marka Özeti</span>
-            </button>
-            <button onclick="showTab('kitle', this)" class="sidebar-item w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-all text-stone-300 hover:bg-stone-800 hover:text-white">
-                <i data-lucide="users" class="w-5 h-5"></i>
-                <span class="font-medium">Hedef Kitle</span>
-            </button>
-            <button onclick="showTab('strateji', this)" class="sidebar-item w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-all text-stone-300 hover:bg-stone-800 hover:text-white">
-                <i data-lucide="shield-check" class="w-5 h-5"></i>
-                <span class="font-medium">Otorite & Strateji</span>
-            </button>
-            <button onclick="showTab('icerik', this)" class="sidebar-item w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-all text-stone-300 hover:bg-stone-800 hover:text-white">
-                <i data-lucide="video" class="w-5 h-5"></i>
-                <span class="font-medium">İçerik Yapısı</span>
-            </button>
-            <button onclick="showTab('takvim', this)" class="sidebar-item w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-all text-stone-300 hover:bg-stone-800 hover:text-white">
-                <i data-lucide="calendar-days" class="w-5 h-5"></i>
-                <span class="font-medium">Haftalık Akış</span>
-            </button>
-            <button onclick="showTab('reklam', this)" class="sidebar-item w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-all text-stone-300 hover:bg-stone-800 hover:text-white">
-                <i data-lucide="bar-chart-4" class="w-5 h-5"></i>
-                <span class="font-medium">Reklam & KPI</span>
-            </button>
-            <button onclick="showTab('aksiyon', this)" class="sidebar-item w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-all text-stone-300 hover:bg-stone-800 hover:text-white">
-                <i data-lucide="check-square" class="w-5 h-5"></i>
-                <span class="font-medium">7 Günlük Aksiyon</span>
-            </button>
-        </nav>
-        
-        <!-- Corporate Footer -->
-        <div class="p-5 mt-auto border-t border-stone-800 text-center">
-            <div class="mb-2">
-                <span class="text-[10px] text-stone-500 uppercase tracking-[0.2em] block mb-1">Stratejik Partner</span>
-                <span class="text-xs text-stone-200 font-bold tracking-wider">MUIMEDYA</span>
-            </div>
-            <p class="text-[9px] text-stone-500 leading-relaxed italic">
-                Bu rapor Vena Coffee Co. için özel olarak hazırlanmıştır.<br/>
-                © 2026 Dijital Performans Ajansı. Tüm Hakları Saklıdır.
-            </p>
-        </div>
-    </aside>
+---
 
-    <!-- Main Content -->
-    <main class="flex-1 p-6 md:p-10 overflow-y-auto">
-        <header class="mb-8 border-b border-stone-200 pb-4">
-            <h2 id="page-title" class="text-3xl font-bold text-stone-800 capitalize">Marka Özeti ve Hedefler</h2>
-            <p class="text-stone-500 mt-2">Görsel üretimde iş birliği odaklı, nitelikli ve sürdürülebilir büyüme.</p>
-        </header>
+## Prompt şablonu (kopyala–yapıştır)
 
-        <!-- --- TAB: ÖZET --- -->
-        <div id="ozet" class="tab-content active space-y-6">
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-100">
-                <h3 class="text-xl font-bold text-stone-800 mb-4 flex items-center">
-                    <i data-lucide="alert-circle" class="text-[#3D2B1F] mr-2 w-6 h-6"></i> Mevcut Durum & Odak
-                </h3>
-                <p class="text-stone-600 leading-relaxed mb-4">
-                    Vena Coffee Co.'nun sağladığı kaliteli görsel materyaller, Muimedya'nın stratejik kurgusuyla birleşerek marka otoritesini inşa edecek. Haftalık **3 Reels ve 3 Post** ritmiyle hem algoritma dostu bir süreklilik sağlanacak hem de estetik bütünlük korunacaktır.
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
-                    <div class="bg-stone-50 p-4 rounded-lg border border-stone-100">
-                        <div class="text-[#3D2B1F] font-bold text-lg mb-1">Materyal Kaynağı</div>
-                        <div class="text-stone-700">Marka tarafından sağlanan ham fotoğraf ve videolar.</div>
-                    </div>
-                    <div class="bg-stone-50 p-4 rounded-lg border border-stone-100">
-                        <div class="text-[#3D2B1F] font-bold text-lg mb-1">Düzenleme & Kurgu</div>
-                        <div class="text-stone-700">Muimedya; kanca (hook), metin ve stratejik kurgu.</div>
-                    </div>
-                    <div class="bg-stone-50 p-4 rounded-lg border border-stone-100">
-                        <div class="text-[#3D2B1F] font-bold text-lg mb-1">Etkileşim</div>
-                        <div class="text-stone-700">Hikayeler üzerinden anketler ve topluluk yönetimi.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+**Rol + hedef**
+“Profesyonel bir video editörü ve motion designer gibi davran. Aşağıdaki kaynaklardan 9:16 dikey Instagram Reels versiyonu üret.”
 
-        <!-- --- TAB: KİTLE --- -->
-        <div id="kitle" class="tab-content grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 hover:shadow-md transition-shadow">
-                <div class="w-12 h-12 bg-stone-100 text-[#3D2B1F] rounded-full flex items-center justify-center mb-4"><i data-lucide="users"></i></div>
-                <h3 class="text-xl font-bold text-stone-800 mb-3">Ev Baristası</h3>
-                <div class="space-y-3 text-sm">
-                    <p><strong>İhtiyaç:</strong> <span class="text-stone-600">Reçeteler ve çekirdek bilgisi.</span></p>
-                    <p><strong>Tetikleyici:</strong> <span class="text-stone-600">Demleme teknikleri içeren Reels/Post serileri.</span></p>
-                </div>
-            </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 hover:shadow-md transition-shadow">
-                <div class="w-12 h-12 bg-stone-100 text-[#3D2B1F] rounded-full flex items-center justify-center mb-4"><i data-lucide="coffee"></i></div>
-                <h3 class="text-xl font-bold text-stone-800 mb-3">Estetik Kaşif</h3>
-                <div class="space-y-3 text-sm">
-                    <p><strong>İhtiyaç:</strong> <span class="text-stone-600">Görsel tatmin ve ambiyans.</span></p>
-                    <p><strong>Tetikleyici:</strong> <span class="text-stone-600">Yüksek kaliteli mekan ve sunum görselleri.</span></p>
-                </div>
-            </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-100 hover:shadow-md transition-shadow">
-                <div class="w-12 h-12 bg-stone-100 text-[#3D2B1F] rounded-full flex items-center justify-center mb-4"><i data-lucide="briefcase"></i></div>
-                <h3 class="text-xl font-bold text-stone-800 mb-3">B2B Ortaklar</h3>
-                <div class="space-y-3 text-sm">
-                    <p><strong>İhtiyaç:</strong> <span class="text-stone-600">Kurumsal güven ve kavurma kalitesi.</span></p>
-                    <p><strong>Tetikleyici:</strong> <span class="text-stone-600">Kavurma süreçleri ve B2B başarı hikayeleri.</span></p>
-                </div>
-            </div>
-        </div>
+**Girdiler (yüklediğin dosyaları isimleriyle referansla)**
 
-        <!-- --- TAB: STRATEJİ --- -->
-        <div id="strateji" class="tab-content space-y-6">
-            <h3 class="text-xl font-bold text-slate-800">Stratejik Otorite Direkleri</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="bg-white p-5 rounded-xl shadow-sm border border-stone-100 flex items-start space-x-4">
-                    <div class="text-[#3D2B1F] bg-stone-50 p-2 rounded-lg"><i data-lucide="flame"></i></div>
-                    <div><h4 class="font-bold text-slate-800">The Roasting Lab</h4><p class="text-sm text-stone-600 mt-1">Gelen ham videoların kurgusuyla kavurma ustalığı vurgulanacak.</p></div>
-                </div>
-                <div class="bg-white p-5 rounded-xl shadow-sm border border-stone-100 flex items-start space-x-4">
-                    <div class="text-[#3D2B1F] bg-stone-50 p-2 rounded-lg"><i data-lucide="graduation-cap"></i></div>
-                    <div><h4 class="font-bold text-slate-800">Vena Brew Academy</h4><p class="text-sm text-stone-600 mt-1">Eğitici kaydırmalı postlar (Carousels) ile bilgi paylaşılacak.</p></div>
-                </div>
-                <div class="bg-white p-5 rounded-xl shadow-sm border border-stone-100 flex items-start space-x-4">
-                    <div class="text-[#3D2B1F] bg-stone-50 p-2 rounded-lg"><i data-lucide="sparkles"></i></div>
-                    <div><h4 class="font-bold text-slate-800">The Vena Vibe</h4><p class="text-sm text-stone-600 mt-1">Marka görselleriyle minimalist bir yaşam tarzı akışı kurulacak.</p></div>
-                </div>
-            </div>
-        </div>
+* Kaynak video: `SOURCE_HORIZONTAL.mp4` (yatay, ana montaj bu)
+* Kurumsal logo (birebir kullanılacak): `LOGO.png` (şeffaf PNG / SVG)
+* Kurumsal görseller/overlayler (birebir): `BRAND_VISUALS.zip` veya tek tek: `overlay1.png`, `frame.png`, `cta.png`
+* (Varsa) Brand guideline: `brand_guide.pdf`
 
-        <!-- --- TAB: İÇERİK --- -->
-        <div id="icerik" class="tab-content">
-            <div class="mb-6 bg-[#3D2B1F] text-white p-6 rounded-xl border-l-8 border-stone-400">
-                <h3 class="font-bold text-lg mb-2 underline">Haftalık Ritim & Kaynak</h3>
-                <ul class="space-y-2 text-sm text-stone-200">
-                    <li class="flex items-center"><i data-lucide="check-circle" class="mr-2 w-4 h-4"></i> 3 Reels (Kurgu: Muimedya | Görüntü: Vena)</li>
-                    <li class="flex items-center"><i data-lucide="check-circle" class="mr-2 w-4 h-4"></i> 3 Post (Tasarım: Muimedya | Fotoğraf: Vena)</li>
-                    <li class="flex items-center"><i data-lucide="check-circle" class="mr-2 w-4 h-4"></i> Günlük Hikaye & Anketler (Etkileşim Odaklı)</li>
-                </ul>
-            </div>
-            <div id="video-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm relative overflow-hidden group">
-                    <span class="text-xs font-bold px-2 py-1 bg-stone-100 text-[#3D2B1F] rounded-md mb-2 inline-block">REELS</span>
-                    <h4 class="text-lg font-bold text-stone-800 mt-1">Demleme ASMR</h4>
-                    <p class="text-stone-600 text-sm mt-2">Vena'dan gelen ham görüntülerin ritmik kurgusu ve kanca metni.</p>
-                </div>
-                <div class="bg-white p-5 rounded-xl border border-stone-200 shadow-sm relative overflow-hidden group">
-                    <span class="text-xs font-bold px-2 py-1 bg-stone-100 text-[#3D2B1F] rounded-md mb-2 inline-block">POST / CAROUSEL</span>
-                    <h4 class="text-lg font-bold text-stone-800 mt-1">Çekirdek Profili</h4>
-                    <p class="text-stone-600 text-sm mt-2">Fotoğraflar üzerine çekirdek origin bilgisi ve tadım notları tasarımı.</p>
-                </div>
-            </div>
-        </div>
+**Çıktı gereksinimleri**
 
-        <!-- --- TAB: TAKVİM --- -->
-        <div id="takvim" class="tab-content">
-            <div class="bg-white rounded-xl shadow-sm border border-stone-200 overflow-hidden">
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse">
-                        <thead>
-                            <tr class="bg-stone-50 text-stone-600 border-b border-stone-200 text-sm uppercase tracking-wider">
-                                <th class="p-4 font-semibold">Gün</th>
-                                <th class="p-4 font-semibold">Format</th>
-                                <th class="p-4 font-semibold">İçerik Konusu</th>
-                                <th class="p-4 font-semibold">Etkileşim Aracı</th>
-                            </tr>
-                        </thead>
-                        <tbody id="calendar-body" class="text-stone-700">
-                            <!-- JS will inject rows here -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="mt-4 p-4 bg-stone-100 rounded-lg text-xs text-stone-500 italic">
-                * Bu döngü haftalık olarak tekrarlanır ve marka materyalleriyle güncellenir.
-            </div>
-        </div>
+* Format: **9:16 (1080x1920)**, MP4 (H.264), 30 fps, yüksek kalite
+* Süre: Kaynak videoyla aynı (ya da şu aralık: **-** sn)
+* **Ses**: Orijinal sesi aynen koru (müzik/konuşma senkronu bozulmasın)
 
-        <!-- --- TAB: REKLAM --- -->
-        <div id="reklam" class="tab-content grid md:grid-cols-3 gap-6">
-            <div class="bg-white p-6 rounded-xl border-t-4 border-stone-400 shadow-sm">
-                <div class="h-10 w-10 bg-stone-100 text-[#3D2B1F] rounded-lg flex items-center justify-center mb-4"><i data-lucide="target"></i></div>
-                <h3 class="font-bold text-lg mb-2">Reach (Erişim)</h3>
-                <p class="text-stone-600 text-sm">En estetik Reels videolarının yeni kitlelere gösterimi.</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl border-t-4 border-[#3D2B1F] shadow-sm transform scale-105 z-10 relative">
-                <div class="h-10 w-10 bg-stone-100 text-[#3D2B1F] rounded-lg flex items-center justify-center mb-4"><i data-lucide="shopping-bag"></i></div>
-                <h3 class="font-bold text-lg mb-2">Sales (Satış)</h3>
-                <p class="text-stone-600 text-sm">Online dükkan trafiği için ürün odaklı Carousel reklamları.</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl border-t-4 border-stone-600 shadow-sm">
-                <div class="h-10 w-10 bg-stone-100 text-stone-600 rounded-lg flex items-center justify-center mb-4"><i data-lucide="user-plus"></i></div>
-                <h3 class="font-bold text-lg mb-2">Community (Bağ)</h3>
-                <p class="text-stone-600 text-sm">Mevcut kitleyi anketler ve özel fırsatlarla bağlı tutma.</p>
-            </div>
-        </div>
+**Dönüşüm kuralları (kritik)**
 
-        <!-- --- TAB: AKSİYON --- -->
-        <div id="aksiyon" class="tab-content max-w-3xl">
-            <div class="bg-white p-6 md:p-8 rounded-xl shadow-sm border border-stone-200">
-                <h3 class="text-xl font-bold text-stone-800 mb-6 flex items-center">İş Akışı & Aksiyon</h3>
-                <div id="checklist-container" class="space-y-3">
-                    <!-- JS will inject checklist items -->
-                </div>
-                <div class="mt-8 pt-6 border-t border-stone-100">
-                    <a href="https://wa.me/905322426012?text=Merhaba,%20Vena%20Coffee%20Co.%20strateji%20plan%C4%B1n%C4%B1%20inceledim,%20onayl%C4%B1yorum." target="_blank" class="w-full bg-[#3D2B1F] hover:bg-[#2A1D15] text-white font-bold py-4 px-4 rounded-lg transition-all flex items-center justify-center text-center">
-                        Stratejiyi Onayla ve Başla
-                    </a>
-                </div>
-            </div>
-        </div>
-    </main>
-</div>
+1. **Auto-reframe / yeniden kadraj**:
 
-<script>
-    lucide.createIcons();
+   * Ana kişi/ürün her zaman merkezde veya “rule of thirds”e uygun olsun.
+   * Yüz/ürün kadrajdan taşmasın, önemli hareketlerde kadrajı “track” ederek takip et.
+   * Yatay videodaki metin/ekran görüntüsü varsa: okunabilir kalacak şekilde **akıllı kırpma + gerektiğinde ölçekleme + arka plan doldurma (blur/extend)** uygula. Metin asla kesilmesin.
 
-    // Weekly cycle based on 3 Reels, 3 Posts, and Daily Stories/Polls
-    const calendarData = [
-        { day: "Pazartesi", format: "REELS", content: "Kavurma Günü / Enerji Başlangıcı", time: "Hikaye: Haftalık Çekirdek Tahmini" },
-        { day: "Salı", format: "POST", content: "Ürün Tanıtımı / Tadım Notaları", time: "Hikaye: Demleme Anketi" },
-        { day: "Çarşamba", format: "REELS", content: "Demleme Tekniği (Educational)", time: "Hikaye: Soru-Cevap Kutusu" },
-        { day: "Perşembe", format: "POST", content: "B2B / Roastery Ekip Fotoğrafı", time: "Hikaye: 'Bu mu? Şu mu?' Anketi" },
-        { day: "Cuma", format: "REELS", content: "Hafta Sonu Modu / Mağaza Vibe", time: "Hikaye: Cuma Keyfi Paylaşımı" },
-        { day: "Cumartesi", format: "POST (Carousel)", content: "Ev Baristası İçin Rehber", time: "Hikaye: Topluluk Paylaşımları" },
-        { day: "Pazar", format: "HİKAYE ODAKLI", content: "Pazar Kahvesi & Dinlenme", time: "Hikaye: Haftalık Özet / Yarışma" }
-    ];
+2. **Logo ve kurumsal görseller birebir**:
 
-    const checklistData = [
-        "Vena Coffee Co. mevcut görsel arşivinin (RAW Drive) Muimedya'ya aktarılması.",
-        "Haftalık 3 Reels ve 3 Post için ham materyal akış takviminin netleşmesi.",
-        "İlk haftanın kanca (hook) ve tasarım şablonlarının onaylanması.",
-        "Hikaye (Story) anketleri için marka ses tonunun (tone of voice) belirlenmesi.",
-        "Öne çıkan hikayelerin (Highlights) yeni stratejiye göre kapak tasarımlarının yapılması.",
-        "Online satış sitesi için link takibi (UTM) kurulumunun yapılması.",
-        "Google My Business yorumlarının hikayelere taşınması kurgusu."
-    ];
+   * `LOGO.png` dosyasını **yeniden üretme, stilize etme, renk değiştirme, bozmadan** kullan.
+   * Logo en-boy oranı korunarak ölçeklensin; sıkıştırma/esnetme yok.
+   * Logoya **clear space** bırak (en az logo yüksekliğinin %10’u kadar).
+   * Yerleşim: sağ alt (veya: ____)
+   * Opaklık: %100 (veya: ____)
+   * Süre: Videonun tamamında (veya: ilk/son __ sn)
 
-    const titles = {
-        ozet: "Marka Özeti ve Hedefler",
-        kitle: "Hedef Kitle Personaları",
-        strateji: "Otorite İnşası ve Konumlandırma",
-        icerik: "İçerik Yapısı & İş Akışı",
-        takvim: "Haftalık Akış & Ritim",
-        reklam: "Reklam, Dağıtım ve Ölçümleme",
-        aksiyon: "7 Günlük Başlangıç Planı"
-    };
+3. **Kurumsal görsel kullanım kuralları**:
 
-    function showTab(tabId, element) {
-        document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-        document.getElementById(tabId).classList.add('active');
-        document.querySelectorAll('.sidebar-item').forEach(item => item.classList.remove('active'));
-        element.classList.add('active');
-        document.getElementById('page-title').innerText = titles[tabId];
-        if (window.innerWidth < 768) window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+   * `overlay*.png` / `frame.png` gibi görselleri **aynen** yerleştir; renk/kontrast/efekt ekleme.
+   * Eğer çakışma olursa, videoyu değil overlayi değil: **kadrajı** ayarla.
 
-    const calendarBody = document.getElementById('calendar-body');
-    calendarData.forEach(row => {
-        const tr = document.createElement('tr');
-        tr.className = "border-b border-stone-100 hover:bg-stone-50";
-        tr.innerHTML = `
-            <td class="p-4 whitespace-nowrap font-medium text-stone-800">${row.day}</td>
-            <td class="p-4"><span class="bg-stone-100 text-stone-700 px-2 py-1 rounded text-xs font-bold">${row.format}</span></td>
-            <td class="p-4 font-semibold">${row.content}</td>
-            <td class="p-4 text-xs text-stone-500 font-medium italic">${row.time}</td>
-        `;
-        calendarBody.appendChild(tr);
-    });
+4. **Güvenli alan (IG UI çakışması)**:
 
-    const checklistContainer = document.getElementById('checklist-container');
-    checklistData.forEach((text) => {
-        const div = document.createElement('div');
-        div.className = "flex items-start p-3 rounded-lg border border-stone-200 bg-stone-50 hover:bg-stone-100 cursor-pointer transition-colors";
-        div.onclick = function() {
-            const circle = this.querySelector('.check-circle');
-            const span = this.querySelector('.check-text');
-            circle.classList.toggle('bg-[#3D2B1F]');
-            circle.classList.toggle('border-[#3D2B1F]');
-            circle.classList.toggle('bg-white');
-            span.classList.toggle('line-through');
-            span.classList.toggle('opacity-60');
-        };
-        div.innerHTML = `
-            <div class="check-circle mt-0.5 w-6 h-6 flex-shrink-0 rounded border border-stone-300 bg-white flex items-center justify-center mr-3 transition-colors">
-                <i data-lucide="check" class="w-4 h-4 text-white"></i>
-            </div>
-            <span class="check-text text-stone-700 select-none text-sm">${text}</span>
-        `;
-        checklistContainer.appendChild(div);
-    });
+   * Alt kısımda Reels arayüzü için metin/logo kritik öğeleri alt kenardan en az **250 px** yukarıda tut.
+   * Sağ tarafta ikonlar için en az **120 px** içeride kal.
 
-    lucide.createIcons();
-</script>
+5. **Alt yazı (opsiyonel ama önerilir)**:
 
-</body>
-</html>
+   * Konuşma varsa otomatik altyazı çıkar.
+   * Stil: kurumsal font varsa kullan; yoksa sade, okunaklı sans-serif.
+   * Altyazı logoyu kapatmasın.
+
+**Teslim**
+
+* 1 adet final render + 1 adet alternatif kadraj (daha yakın / daha geniş) üret.
+* Uyguladığın kadraj stratejisini 3 maddeyle özetle.
+
+---
+
+## Kısa “tek cümle” versiyon (hızlı deneme için)
+
+“`SOURCE_HORIZONTAL.mp4` videosunu 9:16 1080x1920 Reels’e çevir; ana kişi/ürünü takip ederek akıllı yeniden kadraj yap; metin kesilmesin (gerekirse blur/extend background); `LOGO.png` ve verdiğim overlay görsellerini **aynen** (renk/efekt/deformasyon olmadan) yerleştir; IG güvenli alanlarına uy; MP4 H.264 olarak export et.”
+
+---
+
+## Örnek revize komutları (çıktı geldikten sonra)
+
+* “Kadraj daha yakın olsun, yüz/ürün ekranda %15 daha büyük görünsün; metinler yine kesilmesin.”
+* “Logo sağ alttan sol üste alınsın; clear space korunsun; opaklık %100 kalsın.”
+* “Alt yazıları 2 satırı geçmeyecek şekilde kısalt, satır kırılımlarını daha dengeli yap.”
+
+---
+
+## Mini kontrol listesi (Gemini’ye yazmadan önce)
+
+* Logo dosyan **şeffaf PNG/SVG** mi? (beyaz zeminli logo istemeden “birebir” bozulabilir)
+* Brand overlay görsellerinin çözünürlüğü **1080x1920**’e uygun mu?
+* Videoda yatay ekrana gömülü metin var mı? (sunum, ekran kaydı vb.) Varsa “metin kesilmesin” kısmı şart.
+
+İstersen yatay videoda **odaklanması gereken şey** (kişi mi, ürün mü, mekan mı) ve **logonun nereye** konmasını istediğini söyle; ben şablonu senin senaryona göre tamamen doldurup “tek seferde çalışan” nihai prompt’a çevireyim.
